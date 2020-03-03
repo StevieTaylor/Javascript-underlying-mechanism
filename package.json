@@ -1,0 +1,39 @@
+{
+  "name": "Javascript-underlying-mechanism",
+  "version": "1.0.0",
+  "description": "一个用于研究Javascript底层机制的demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config build/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StevieTaylor/Javascript-underlying-mechanism.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StevieTaylor/Javascript-underlying-mechanism/issues"
+  },
+  "homepage": "https://github.com/StevieTaylor/Javascript-underlying-mechanism#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "babel-loader": "^8.0.6"
+  }
+}
