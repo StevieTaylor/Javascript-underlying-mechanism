@@ -60,6 +60,7 @@ console.log(date.constructor === Object); // false
  *         1.该方法准确的能判断出各种数据的类型
  *         2.返回的是 "[Object Class]"的形式，Class为具体的类型
  */
+console.log('-------------------Object.prototype.toString.call()-------------------');
 const toStringArr = checkArray.map((item) => Object.prototype.toString.call(item));
 // ["[object Number]", "[object String]", "[object Boolean]", "[object Undefined]", "[object Null]", "[object Symbol]",
 // "[object Object]", "[object Array]", "[object Date]", "[object Error]", "[object RegExp]", "[object Math]", "[object Function]"]
