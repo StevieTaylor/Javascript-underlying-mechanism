@@ -35,3 +35,23 @@ console.log(cArray);
 // cArray = [1, 2, 3]; // error:Assignment to constant variable.
 cArray.push(null);
 console.log(cArray);
+
+// 在函数传参的时候传递的是对象在堆中的内存地址值
+function getPerson(person){
+   // 传进来：{name: "frank", age: 24}
+   person.age = 28;
+   // 改变了堆里的值：{name: "frank", age: 28}
+   person = {
+     name:'frankie',
+     age:18
+   }
+   // 重新分配了新地址和值：{name: "frankie", age: 18}
+   return person;
+}
+const p1 = {
+  name:'frank',
+  age:24
+}
+const p2=getPerson(p1);
+console.log('p1:',p1); // {name: "frank", age: 28}
+console.log('p2:',p2); // {name: "frankie", age: 18}
