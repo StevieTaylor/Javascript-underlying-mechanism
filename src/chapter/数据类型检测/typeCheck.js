@@ -13,7 +13,7 @@ const date = new Date(); // [object Date]
 const error = new Error(); // [object Error]
 const reg = /a/g; // [object RegExp]
 const math = Math;
-const func = function a() {}; // [object Function]
+const func = function a() { }; // [object Function]
 const checkArray = [number, string, boolean, undefine, nul, symbol, object, array, date, error, reg, math, func];
 console.log(checkArray);
 
@@ -21,6 +21,8 @@ console.log(checkArray);
  * 一、使用 typeof 关键字进行检测
  *        1.对于基本类型，除了null检测为object以外，均返回正常
  *        2.对于引用类型，除了function检测为function以外，其余均返回object
+ *        3.虽然 typeof null 会输出 object，但是这只是 JS 存在的一个悠久 Bug。在 JS 的最初版本中使用的是 32 位系统，
+ *           为了性能考虑使用低位存储变量的类型信息，000 开头代表是对象然而 null 表示为全零，所以将它错误的判断为 object
  */
 console.log('-------------------typeof-------------------');
 typeofArray = checkArray.map((item) => typeof item);
@@ -41,6 +43,20 @@ console.log(num_ctor instanceof Object); // true
 
 console.log(array instanceof Array); // true
 console.log(array instanceof Object); // true
+
+const Instanceof = (data, ctor) => {
+    if (typeof data !== 'object' || data === null) return false; // 若data是基本类型，返回false
+    let prototype = Object.getPrototypeOf(data); // 获取data的原型对象prototype
+    while (true) {
+        if (prototype == null) return false;
+        if (prototype == ctor.prototype) return true;
+        prototype = Object.getPrototypeOf(prototype);
+    }
+}
+console.log('test Instanceof');
+console.log(Instanceof(1,Number));
+console.log(Instanceof('字符串',String)); // false
+console.log(Instanceof(new String('构造函数字符串'),String)); // true
 
 /**
  *  三、使用constructor检测
