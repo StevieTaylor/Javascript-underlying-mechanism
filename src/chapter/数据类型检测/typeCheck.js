@@ -25,7 +25,7 @@ console.log(checkArray);
  *           为了性能考虑使用低位存储变量的类型信息，000 开头代表是对象然而 null 表示为全零，所以将它错误的判断为 object
  */
 console.log('-------------------typeof-------------------');
-typeofArray = checkArray.map((item) => typeof item);
+const typeofArray = checkArray.map((item) => typeof item);
 // ["number", "string", "boolean", "undefined", "object", "symbol", "object", "object", "object", "object", "object", "object", "function"]
 console.log(typeofArray);
 
@@ -54,9 +54,9 @@ const Instanceof = (data, ctor) => {
     }
 }
 console.log('test Instanceof');
-console.log(Instanceof(1,Number));
-console.log(Instanceof('字符串',String)); // false
-console.log(Instanceof(new String('构造函数字符串'),String)); // true
+console.log(Instanceof(1, Number));
+console.log(Instanceof('字符串', String)); // false
+console.log(Instanceof(new String('构造函数字符串'), String)); // true
 
 /**
  *  三、使用constructor检测
@@ -81,3 +81,11 @@ const toStringArr = checkArray.map((item) => Object.prototype.toString.call(item
 // ["[object Number]", "[object String]", "[object Boolean]", "[object Undefined]", "[object Null]", "[object Symbol]",
 // "[object Object]", "[object Array]", "[object Date]", "[object Error]", "[object RegExp]", "[object Math]", "[object Function]"]
 console.log(toStringArr);
+
+/**
+ *  五、使用封装好的getType方法检测
+ */
+import { getType } from '../../tools/typeCheck'
+console.log('-------------------custom function getType()-------------------');
+const getTypeArr = checkArray.map(item => getType(item));
+console.log(getTypeArr);
